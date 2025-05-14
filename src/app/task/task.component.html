@@ -1,0 +1,40 @@
+<div
+  class="min-w-[250px] w-full h-full flex flex-col gap-4 p-5 border rounded-2xl bg-white shadow-sm transition-transform duration-200 hover:shadow-lg hover:scale-[1.01] box-border"
+  [ngClass]="borderColorClass()"
+>
+  <div class="flex justify-between items-center">
+    <app-status data-test-id="task_status" [curStatus]="task().status"></app-status>
+
+    <div class="flex gap-2">
+      <button data-test-id="task_button_edit" (click)="onEditTask()" mat-icon-button matTooltip="Edit Task" class="text-blue-600 hover:text-blue-800">
+        <mat-icon>edit</mat-icon>
+      </button>
+
+      <button data-test-id="task_button_delete" (click)="onDeleteTask()" mat-icon-button matTooltip="Delete Task" class="text-red-600 hover:text-red-800">
+        <mat-icon class="text-base leading-none">delete</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <h1 data-test-id="task_name" class="text-lg font-semibold text-zinc-900 break-words">
+    {{ task().name }}
+  </h1>
+
+  <div class="flex items-center gap-2 text-sm text-zinc-500">
+    <mat-icon data-test-id="task_date_icon" class="text-base">calendar_month</mat-icon>
+    <span data-test-id="task_date" class="italic">{{ task().createdAt | date: 'medium' }}</span>
+  </div>
+
+  <p data-test-id="task_description" class="text-sm text-zinc-700 leading-relaxed">
+    {{ task().description }}
+  </p>
+
+  @if (task().status !== status.COMPLETED) {
+    <app-status-switcher
+      data-test-id="task_status_switcher"
+      class="self-end"
+      [curStatus]="task().status"
+      (statusChange)="updateTaskStatus($event)"
+    ></app-status-switcher>
+  }
+</div>

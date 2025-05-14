@@ -1,0 +1,17 @@
+<h2 data-test-id="confirmation-dialog_header" mat-dialog-title class="text-xl font-semibold text-gray-800">Confirm Task Deletion</h2>
+
+<mat-dialog-content>
+  <div class="flex flex-col gap-2 pt-2">
+    <p data-test-id="confirmation-dialog_question" >Are you sure you want to delete this task:</p>
+    <p>
+      <span data-test-id="confirmation-dialog_task-name" class="font-semibold text-gray-800">{{ taskName }} </span
+      >?
+    </p>
+    <p data-test-id="confirmation-dialog_warning" class="text-red-500 font-semibold">This action cannot be undone.</p>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="pt-4">
+  <button data-test-id="confirmation-dialog_button_yes" mat-button (click)="onConfirm(true)">Yes</button>
+  <button data-test-id="confirmation-dialog_button_no" mat-button (click)="onConfirm(false)">No</button>
+</mat-dialog-actions>

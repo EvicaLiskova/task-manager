@@ -1,0 +1,22 @@
+<h2 data-test-id="task-dialog_header" mat-dialog-title class="text-xl font-semibold text-gray-800">
+  {{ data.mode === 'edit' ? 'Edit Task' : 'Add New Task' }}
+</h2>
+
+<mat-dialog-content class="flex flex-col gap-4 pt-2">
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label data-test-id="task-dialog_label_name">Task Name</mat-label>
+    <input data-test-id="task-dialog_input_name" matInput [(ngModel)]="task.name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label data-test-id="task-dialog_label_description">Description</mat-label>
+    <textarea data-test-id="task-dialog_input_description" matInput rows="3" [(ngModel)]="task.description"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="pt-4">
+  <button data-test-id="task-dialog_button_cancel" mat-button (click)="onCancel()">Cancel</button>
+  <button data-test-id="task-dialog_button_action" mat-flat-button color="primary" [disabled]="!task.name" (click)="onSave()">
+    {{ data.mode === 'edit' ? 'Edit' : 'Add' }}
+  </button>
+</mat-dialog-actions>

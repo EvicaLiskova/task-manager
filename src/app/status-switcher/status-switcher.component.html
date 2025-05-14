@@ -1,0 +1,7 @@
+@if (curStatus() === status.TODO) {
+  <button data-test-id="status-switcher_to-progreee" class="text-sm text-blue-400" (click)="moveTo(status.IN_PROGRESS)">Move to In Progress</button>
+}
+
+@if (curStatus() === status.IN_PROGRESS) {
+  <button data-test-id="status-switcher_to-completed" class="text-sm text-green-400"  (click)="moveTo(status.COMPLETED)">Mark Completed</button>
+}

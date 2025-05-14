@@ -1,0 +1,15 @@
+@use 'tailwindcss';
+@use '@angular/material' as mat;
+
+:root {
+  --app-primary: #1976d2;
+  --app-accent: #e91e63;
+  --app-danger: #f44336;
+  --app-padding: 1rem;
+
+  @include mat.divider-overrides(
+    (
+      color: orange,
+    )
+  );
+}
