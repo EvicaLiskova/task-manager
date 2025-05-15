@@ -32,7 +32,7 @@ describe('AppComponent', () => {
         {
           provide: TaskService,
           useValue: {
-            tasks$: of(mockTasks), 
+            tasks$: of(mockTasks),
           },
         },
       ],

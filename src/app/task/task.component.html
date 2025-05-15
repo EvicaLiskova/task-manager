@@ -6,11 +6,23 @@
     <app-status data-test-id="task_status" [curStatus]="task().status"></app-status>
 
     <div class="flex gap-2">
-      <button data-test-id="task_button_edit" (click)="onEditTask()" mat-icon-button matTooltip="Edit Task" class="text-blue-600 hover:text-blue-800">
+      <button
+        data-test-id="task_button_edit"
+        (click)="onEditTask()"
+        mat-icon-button
+        matTooltip="Edit Task"
+        class="text-blue-600 hover:text-blue-800"
+      >
         <mat-icon>edit</mat-icon>
       </button>
 
-      <button data-test-id="task_button_delete" (click)="onDeleteTask()" mat-icon-button matTooltip="Delete Task" class="text-red-600 hover:text-red-800">
+      <button
+        data-test-id="task_button_delete"
+        (click)="onDeleteTask()"
+        mat-icon-button
+        matTooltip="Delete Task"
+        class="text-red-600 hover:text-red-800"
+      >
         <mat-icon class="text-base leading-none">delete</mat-icon>
       </button>
     </div>
@@ -34,7 +46,7 @@
       data-test-id="task_status_switcher"
       class="self-end"
       [curStatus]="task().status"
-      (statusChange)="updateTaskStatus($event)"
+      (statusChange)="onUpdateTaskStatus($event)"
     ></app-status-switcher>
   }
 </div>

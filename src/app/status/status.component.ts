@@ -7,7 +7,6 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-status',
   imports: [CommonModule, MatIconModule],
   templateUrl: './status.component.html',
-  styleUrl: './status.component.scss',
 })
 export class StatusComponent {
   public curStatus = input.required<Status>();

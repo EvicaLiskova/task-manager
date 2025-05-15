@@ -8,7 +8,7 @@ describe('TaskService', () => {
 
   const sampleTask: AddTask = {
     name: 'New Task',
-    description: 'A new test task'
+    description: 'A new test task',
   };
 
   beforeEach(() => {
@@ -29,11 +29,11 @@ describe('TaskService', () => {
     return (service as any).tasks;
   }
 
-  it('should return all tasks if no search term is set', (done) => {
+  it('should return all tasks if no search term is set', done => {
     const initialTask = { ...sampleTask, id: '1', status: Status.TODO, createdAt: new Date() };
     (service as any).updateTasks([initialTask]);
 
-    service.tasks$.subscribe((tasks) => {
+    service.tasks$.subscribe(tasks => {
       expect(tasks.length).toBe(1);
       expect(tasks[0].name).toBe('New Task');
       done();
@@ -54,7 +54,7 @@ describe('TaskService', () => {
       ...sampleTask,
       id: '123',
       status: Status.TODO,
-      createdAt: new Date()
+      createdAt: new Date(),
     };
 
     (service as any).updateTasks([task]);
@@ -71,7 +71,7 @@ describe('TaskService', () => {
       ...sampleTask,
       id: '123',
       status: Status.TODO,
-      createdAt: new Date()
+      createdAt: new Date(),
     };
 
     (service as any).updateTasks([task]);
@@ -80,18 +80,18 @@ describe('TaskService', () => {
     expect(getTasks().length).toBe(0);
   });
 
-  it('should update search term and trigger search', (done) => {
+  it('should update search term and trigger search', done => {
     const task: Task = {
       ...sampleTask,
       id: 'abc',
       status: Status.TODO,
-      createdAt: new Date()
+      createdAt: new Date(),
     };
 
     (service as any).updateTasks([task]);
     service.searchTasks('abc');
 
-    service.tasks$.subscribe((tasks) => {
+    service.tasks$.subscribe(tasks => {
       expect(searchService.searchTasks).toHaveBeenCalledWith([task], 'abc');
       expect(tasks.length).toBe(1);
       done();

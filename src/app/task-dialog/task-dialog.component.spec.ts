@@ -36,10 +36,14 @@ describe('TaskDialogComponent', () => {
   });
 
   it('should disable the action button until a name is typed', () => {
-    const button: HTMLButtonElement = fixture.debugElement.query(By.css('[data-test-id="task-dialog_button_action"]')).nativeElement;
+    const button: HTMLButtonElement = fixture.debugElement.query(
+      By.css('[data-test-id="task-dialog_button_action"]')
+    ).nativeElement;
     expect(button.disabled).toBeTrue();
 
-    const input: HTMLInputElement = fixture.debugElement.query(By.css('[data-test-id="task-dialog_input_name"]')).nativeElement;
+    const input: HTMLInputElement = fixture.debugElement.query(
+      By.css('[data-test-id="task-dialog_input_name"]')
+    ).nativeElement;
     input.value = 'My Task';
     input.dispatchEvent(new Event('input'));
 
@@ -48,8 +52,12 @@ describe('TaskDialogComponent', () => {
   });
 
   it('should capture input values and close with task on save', async () => {
-    const nameInput: HTMLInputElement = fixture.debugElement.query(By.css('[data-test-id="task-dialog_input_name"]')).nativeElement;
-    const descriptionInput: HTMLTextAreaElement = fixture.debugElement.query(By.css('[data-test-id="task-dialog_input_description"]')).nativeElement;
+    const nameInput: HTMLInputElement = fixture.debugElement.query(
+      By.css('[data-test-id="task-dialog_input_name"]')
+    ).nativeElement;
+    const descriptionInput: HTMLTextAreaElement = fixture.debugElement.query(
+      By.css('[data-test-id="task-dialog_input_description"]')
+    ).nativeElement;
 
     nameInput.value = 'My New Task';
     nameInput.dispatchEvent(new Event('input'));
@@ -60,7 +68,9 @@ describe('TaskDialogComponent', () => {
     fixture.detectChanges();
     await fixture.whenStable();
 
-    const button: HTMLButtonElement = fixture.debugElement.query(By.css('[data-test-id="task-dialog_button_action"]')).nativeElement;
+    const button: HTMLButtonElement = fixture.debugElement.query(
+      By.css('[data-test-id="task-dialog_button_action"]')
+    ).nativeElement;
     button.click();
 
     expect(dialogCloseSpy).toHaveBeenCalledWith({

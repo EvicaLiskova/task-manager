@@ -88,7 +88,7 @@ describe('TaskComponent', () => {
   });
 
   it('should call updateTask when status is changed', () => {
-    component.updateTaskStatus(Status.IN_PROGRESS);
+    component.onUpdateTaskStatus(Status.IN_PROGRESS);
     fixture.detectChanges();
 
     expect(updateTaskSpy).toHaveBeenCalled();

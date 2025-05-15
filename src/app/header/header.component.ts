@@ -14,7 +14,6 @@ import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
   standalone: true,
   imports: [MatIconModule, ReactiveFormsModule, MatTooltipModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
   public searchControl = new FormControl('');
@@ -27,11 +26,7 @@ export class HeaderComponent implements OnInit {
 
   public ngOnInit(): void {
     this.searchControl.valueChanges
-      .pipe(
-        debounceTime(1000),
-        distinctUntilChanged(),
-        takeUntil(this.destroy$)
-      )
+      .pipe(debounceTime(1000), distinctUntilChanged(), takeUntil(this.destroy$))
       .subscribe(searchTerm => {
         this.isSearchActive.set(!!searchTerm);
         this.taskService.searchTasks(searchTerm ?? '');

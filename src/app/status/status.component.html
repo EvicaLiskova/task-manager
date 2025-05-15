@@ -1,17 +1,26 @@
 @if (curStatus() === status.TODO) {
-  <div data-test-id="status_todo" class="bg-gray-300 w-fit py-0 px-2 rounded-md flex gap-1 flex-nowrap items-center text-sm text-gray-500">
+  <div
+    data-test-id="status_todo"
+    class="bg-gray-300 w-fit py-0 px-2 rounded-md flex gap-1 flex-nowrap items-center text-sm text-gray-500"
+  >
     <mat-icon>not_started</mat-icon>
     <p>Todo</p>
   </div>
 }
 @if (curStatus() === status.IN_PROGRESS) {
-  <div data-test-id="status_in_progress" class="bg-blue-300 w-fit py-0 px-2 rounded-md flex gap-1 flex-nowrap items-center text-sm text-gray-500">
+  <div
+    data-test-id="status_in_progress"
+    class="bg-blue-300 w-fit py-0 px-2 rounded-md flex gap-1 flex-nowrap items-center text-sm text-gray-500"
+  >
     <mat-icon>pending</mat-icon>
     <p>In Progress</p>
   </div>
 }
 @if (curStatus() === status.COMPLETED) {
-  <div data-test-id="status_completed" class="bg-green-300 w-fit py-0 px-2 rounded-md flex gap-1 flex-nowrap items-center text-sm text-gray-500">
+  <div
+    data-test-id="status_completed"
+    class="bg-green-300 w-fit py-0 px-2 rounded-md flex gap-1 flex-nowrap items-center text-sm text-gray-500"
+  >
     <mat-icon>check_circle</mat-icon>
     <p>Complete</p>
   </div>

@@ -51,7 +51,7 @@ describe('HeaderComponent', () => {
 
   it('should clear the search when clear button is clicked', fakeAsync(() => {
     component.searchControl.setValue('something');
-    
+
     fixture.detectChanges();
     tick(2000);
     fixture.detectChanges();

@@ -6,12 +6,11 @@ import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/materia
   selector: 'app-confirmation-dialog',
   imports: [MatDialogModule, MatButtonModule],
   templateUrl: './confirmation-dialog.component.html',
-  styleUrl: './confirmation-dialog.component.scss'
 })
 export class ConfirmationDialogComponent {
   public readonly taskName: string = inject(MAT_DIALOG_DATA);
   public readonly dialogRef: MatDialogRef<ConfirmationDialogComponent> = inject(MatDialogRef);
-  
+
   public onConfirm(confirmation: boolean): void {
     this.dialogRef.close(confirmation);
   }

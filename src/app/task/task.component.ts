@@ -1,4 +1,4 @@
-import { Component, computed, inject, Input, input, OnInit, Signal } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { Status, Task } from '../model/task.model';
 import { StatusComponent } from '../status/status.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -10,13 +10,20 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
-import { StatusSwitcherComponent } from "../status-switcher/status-switcher.component";
+import { StatusSwitcherComponent } from '../status-switcher/status-switcher.component';
 
 @Component({
   selector: 'app-task',
-  imports: [NgClass, StatusComponent, MatIconModule, MatButtonModule, CommonModule, MatTooltipModule, StatusSwitcherComponent],
+  imports: [
+    NgClass,
+    StatusComponent,
+    MatIconModule,
+    MatButtonModule,
+    CommonModule,
+    MatTooltipModule,
+    StatusSwitcherComponent,
+  ],
   templateUrl: './task.component.html',
-  styleUrl: './task.component.scss',
 })
 export class TaskComponent {
   public task = input.required<Task>();
@@ -63,7 +70,7 @@ export class TaskComponent {
     });
   }
 
-  public updateTaskStatus(newStatus: Status): void {
+  public onUpdateTaskStatus(newStatus: Status): void {
     this.taskService.updateTask({ ...this.task(), status: newStatus });
     this.snackBar.open('Task status updated!', 'Close', { duration: 3000 });
   }

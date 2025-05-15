@@ -12,25 +12,18 @@ import { TaskDialogData } from '../model/task-dialog.model';
   selector: 'app-task-dialog',
   standalone: true,
   templateUrl: './task-dialog.component.html',
-  styleUrl: './task-dialog.component.scss',
-  imports: [
-    FormsModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule
-  ],
+  imports: [FormsModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatButtonModule],
 })
 export class TaskDialogComponent {
   public readonly data: TaskDialogData = inject(MAT_DIALOG_DATA);
   public readonly dialogRef: MatDialogRef<TaskDialogComponent> = inject(MatDialogRef);
-  
+
   public task: AddTask = {
     name: '',
     description: '',
-    ...this.data.task
+    ...this.data.task,
   };
-  
+
   public onCancel(): void {
     this.dialogRef.close();
   }

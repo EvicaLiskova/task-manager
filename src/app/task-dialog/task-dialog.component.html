@@ -16,7 +16,13 @@
 
 <mat-dialog-actions align="end" class="pt-4">
   <button data-test-id="task-dialog_button_cancel" mat-button (click)="onCancel()">Cancel</button>
-  <button data-test-id="task-dialog_button_action" mat-flat-button color="primary" [disabled]="!task.name" (click)="onSave()">
+  <button
+    data-test-id="task-dialog_button_action"
+    mat-flat-button
+    color="primary"
+    [disabled]="!task.name"
+    (click)="onSave()"
+  >
     {{ data.mode === 'edit' ? 'Edit' : 'Add' }}
   </button>
 </mat-dialog-actions>

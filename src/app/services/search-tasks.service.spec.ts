@@ -10,22 +10,22 @@ describe('SearchTasksService', () => {
       name: 'Write unit tests',
       description: 'Cover all cases with Jasmine',
       status: Status.TODO,
-      createdAt: new Date('2024-01-01')
+      createdAt: new Date('2024-01-01'),
     },
     {
       id: '2',
       name: 'Fix bugs',
       description: 'Resolve reported issues',
       status: Status.IN_PROGRESS,
-      createdAt: new Date('2024-01-02')
+      createdAt: new Date('2024-01-02'),
     },
     {
       id: '3',
       name: 'Refactor code',
       description: 'Clean up components',
       status: Status.COMPLETED,
-      createdAt: new Date('2024-01-03')
-    }
+      createdAt: new Date('2024-01-03'),
+    },
   ];
 
   beforeEach(() => {

@@ -22,8 +22,8 @@ describe('ConfirmationDialogComponent', () => {
       imports: [ConfirmationDialogComponent],
       providers: [
         { provide: MatDialogRef, useValue: mockDialogRef },
-        { provide: MAT_DIALOG_DATA, useValue: taskName }
-      ]
+        { provide: MAT_DIALOG_DATA, useValue: taskName },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ConfirmationDialogComponent);
@@ -32,10 +32,16 @@ describe('ConfirmationDialogComponent', () => {
   });
 
   it('should display the correct title and text content', () => {
-    expect(fixture.debugElement.query(By.css(TEST_ID_HEADER)).nativeElement.textContent).toContain('Confirm Task Deletion');
-    expect(fixture.debugElement.query(By.css(TEST_ID_QUESTION)).nativeElement.textContent).toContain('Are you sure you want to delete this task');
+    expect(fixture.debugElement.query(By.css(TEST_ID_HEADER)).nativeElement.textContent).toContain(
+      'Confirm Task Deletion'
+    );
+    expect(fixture.debugElement.query(By.css(TEST_ID_QUESTION)).nativeElement.textContent).toContain(
+      'Are you sure you want to delete this task'
+    );
     expect(fixture.debugElement.query(By.css(TEST_ID_TASK_NAME)).nativeElement.textContent).toContain(taskName);
-    expect(fixture.debugElement.query(By.css(TEST_ID_WARNING)).nativeElement.textContent).toContain('This action cannot be undone');
+    expect(fixture.debugElement.query(By.css(TEST_ID_WARNING)).nativeElement.textContent).toContain(
+      'This action cannot be undone'
+    );
   });
 
   it('should close the dialog with true when "Yes" is clicked', () => {

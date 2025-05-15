@@ -1,4 +1,4 @@
-import { Component, inject, Signal, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { TaskComponent } from './task/task.component';
 import { HeaderComponent } from './header/header.component';
@@ -10,11 +10,10 @@ import { Task } from './model/task.model';
   standalone: true,
   imports: [TaskComponent, HeaderComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   public tasks = signal<Task[]>([]);
-  
+
   private taskService = inject(TaskService);
   private matIconReg = inject(MatIconRegistry);
 
