@@ -3,6 +3,9 @@
 A simple and modern task management application built with **Angular**, **Angular Material** and **Tailwind CSS**.  
 It supports task creation, status updates,task name and description update, search, deletion, and responsive design. Also it is built for a job interview.
 
+## Live preview
+https://evicaliskova.github.io/task-manager/
+
 ## A few thoughts from me
 
 ### Thoughts about the requirements and making assumptions
