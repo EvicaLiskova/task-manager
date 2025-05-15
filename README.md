@@ -5,7 +5,7 @@ It supports task creation, status updates,task name and description update, sear
 
 ## A few thoughts from me
 
-### thoughts about the requirements and making assumptions
+### Thoughts about the requirements and making assumptions
 
 - **Task creation**  
   Used a dialog with name & description fields. No strict validation was mentioned so it is flexible and simple. I would assume that you need at least a name to create a task. Tasks default to "Todo", with a snackbar confirming success.
@@ -45,6 +45,15 @@ The final version turned out to be slightly different. The is simple, responsive
 - **Playwright** – end-to-end testing
 - **Docker + nginx** – containarized it - thought I should try it :)
 - **Github pages** - hosting sample app
+
+## Architecture Notes
+
+### State Management
+- I'm using a root level service to provide and interact witht the task data for components.
+
+### Data Persistence
+- On first load, tasks are initialized from a **mock data file**.
+- All changes (create, edit, delete, status updates) are saved to **`localStorage`**, simulating persistent storage without requiring a backend.
 
 ## Run with Docker
 
